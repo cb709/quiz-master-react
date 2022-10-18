@@ -6,7 +6,6 @@ import "./Quiz.css";
 const Quiz = () => {
   const data = useLoaderData();
   const { logo, name, questions , total } = data.data;
-  console.log(questions)
   return (
     <div className="quiz-container container">
       <div className="quiz-info">
@@ -18,7 +17,7 @@ const Quiz = () => {
       </div>
       <div className="quizes">
         {
-            questions.map ( question => <Question key={question.id} question={question}></Question>)
+            questions.map ( (question, index) => <Question key={question.id} question={question} index={index}></Question>)
         }
       </div>
     </div>

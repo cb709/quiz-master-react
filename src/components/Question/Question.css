@@ -1,0 +1,42 @@
+.question {
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+.question-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+
+  text-align: left;
+}
+.question-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.option {
+  border: 1px solid rgba(197, 197, 197, 0.623);
+  border-radius: 15px;
+  padding: 10px;
+}
+.option:hover {
+  background-color: skyblue;
+  cursor: pointer;
+}
+.correct-ans {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.d-none {
+    display: none;
+}
