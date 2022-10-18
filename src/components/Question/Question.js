@@ -1,31 +1,86 @@
 import React, { useState } from "react";
 import "./Question.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "animate.css";
+import { BeakerIcon } from '@heroicons/react/24/solid'
+
 const Question = ({ question: data, index }) => {
   const { options, question, correctAnswer } = data;
-  const questionTitle = question.slice(3, -4);
-
   const [ans, setAns] = useState(true);
+
+  const selectOption = (selected) => {
+    if (selected === correctAnswer) {
+      toast.success("Correct Answer !", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      console.log("hello");
+    } else {
+      toast.error("Wrong Answer !", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    // console.log(2);
+  };
 
   return (
     <div className="question">
       <div className="question-head">
-      <p className="question-title">
-        {index + 1} : {questionTitle}
-      </p>
-      <button onClick={()=> setAns(!ans)}>
-        Answer
-      </button>
+        {/* string to html */}
+        <div
+          className="question-title"
+          dangerouslySetInnerHTML={{ __html: question }}
+        />
+        <button className="ans-btn" onClick={() => setAns(!ans)}>
+          {ans ? 'See' : 'Hide'}
+        </button>
       </div>
       <div className="options">
         {options.map((option, index) => (
-          <div className="option" key={index}>
-            <p>{option}</p>
-          </div>
+          <button
+            className="option"
+            key={index}
+            onClick={() => selectOption(option)}
+          >
+            {option}
+          </button>
         ))}
       </div>
-      <div className={ ans ? 'correct-ans d-none' : 'correct-ans'}>
+      <div
+        className={
+          ans
+            ? "correct-ans d-none"
+            : "correct-ans animate__animated animate__fadeInUp"
+        }
+      >
         <p>Answer: {correctAnswer}</p>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };
