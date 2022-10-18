@@ -1,0 +1,14 @@
+.quiz-info {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.quiz-info img {
+    max-width: 80px;
+    margin-right: 30px;
+    border-radius: 10px;
+}
+
+.white-logo {
+    background-color: rgb(43, 22, 22);
+}
