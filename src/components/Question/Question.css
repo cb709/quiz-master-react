@@ -6,9 +6,13 @@
 .question-title {
   font-weight: 600;
   font-size: 1.2rem;
-
   text-align: left;
+  display: flex;
 }
+.question-number {
+  margin-right: 10px;
+}
+
 .question-head {
   display: flex;
   align-items: center;
@@ -30,6 +34,7 @@
   justify-content: center;
   background-color: white;
 }
+
 .option:hover {
   background-color: skyblue;
   cursor: pointer;
@@ -60,4 +65,17 @@
   background-color: green;
   color: white;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .options {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+  .question-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-right: 20px;
+  }
 }

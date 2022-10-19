@@ -28,6 +28,7 @@ function App() {
         },
         {
           path: "blog",
+          loader: () => fetch('blogs.json'),
           element: <Blog></Blog>,
         },
         {

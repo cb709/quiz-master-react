@@ -1,0 +1,10 @@
+.blog-container {
+    min-height: 88vh;
+}
+.blog {
+    margin-bottom: 30px;
+    text-align: left;
+}
+.blog h2 {
+    margin-bottom: 10px;
+}

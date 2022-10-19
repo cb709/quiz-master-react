@@ -3,7 +3,8 @@ import "./Question.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "animate.css";
-import { BeakerIcon } from '@heroicons/react/24/solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const Question = ({ question: data, index }) => {
   const { options, question, correctAnswer } = data;
@@ -40,13 +41,14 @@ const Question = ({ question: data, index }) => {
   return (
     <div className="question">
       <div className="question-head">
-        {/* string to html */}
-        <div
-          className="question-title"
-          dangerouslySetInnerHTML={{ __html: question }}
-        />
+        <div className="question-title">
+          <div className="question-number">
+            <p>{index + 1}.</p>
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: question }} />
+        </div>
         <button className="ans-btn" onClick={() => setAns(!ans)}>
-          {ans ? 'See' : 'Hide'}
+          { ans ? <FontAwesomeIcon icon={faEye}></FontAwesomeIcon> : <FontAwesomeIcon icon={faEyeSlash}></FontAwesomeIcon>}
         </button>
       </div>
       <div className="options">
